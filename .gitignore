@@ -1,0 +1,19 @@
+*.class
+
+META-INF
+MANIFEST.MF
+
+# Ignore build directories
+out/
+build/
+
+# Ignore IDE-specific files
+.DS_Store
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+*.xml
+*.ipr
+*.iws
+.out

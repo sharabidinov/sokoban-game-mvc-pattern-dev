@@ -1,0 +1,54 @@
+# image: ubuntu:20.04
+
+# stages:
+#  - destroy
+#  - build
+#  - deploy
+
+# destroy:
+#  stage: destroy
+#  tags:
+#    - ubuntu
+#  before_script:
+#    - apt-get update
+#    - apt-get install -y openssh-client
+#    - mkdir -p ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/privet
+#    - chmod 600 ~/.ssh/privet
+#    - ssh-keyscan -H 164.90.161.10 >> ~/.ssh/known_hosts
+#  script:
+
+#    - ssh -i ~/.ssh/privet root@164.90.161.10 'cd /home/serverSokoban &&
+#        ./killServerProcess.sh'
+#  only:
+#    - dev
+
+# build-job:
+#  stage: build
+#  tags:
+#    - ubuntu
+#  before_script:
+#    - apt-get update && apt-get install -y openjdk-17-jdk
+#    - apt-get install -y openssh-client
+#    - mkdir -p ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/privet
+#    - chmod 600 ~/.ssh/privet
+#    - ssh-keyscan -H 164.90.161.10 >> ~/.ssh/known_hosts
+#  script:
+#    - javac server/*.java
+#    - ssh -i ~/.ssh/privet root@164.90.161.10 'dir'
+#    - scp -r -i ~/.ssh/privet server/BackendServerSokoban.class server/Client.class server/LevelChooserServer.class server/Main.class res/levels/ root@164.90.161.10:/home/serverSokoban/server
+
+# deploy-job:
+#  stage: deploy
+#  environment: docker
+#  tags:
+#    - ubuntu
+#  before_script:
+#    - apt-get update && apt-get install -y openssh-client
+#    - mkdir -p ~/.ssh
+#    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/privet
+#    - chmod 600 ~/.ssh/privet
+#    - ssh-keyscan -H 164.90.161.10 >> ~/.ssh/known_hosts
+#  script:
+#    - ssh -i ~/.ssh/privet root@164.90.161.10 'cd /home/serverSokoban/server && nohup java Main > nohup.out 2>&1 & exit'

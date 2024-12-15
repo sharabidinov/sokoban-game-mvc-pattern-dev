@@ -6,6 +6,7 @@ import java.awt.Font;
 public class LevelName extends JLabel {
 
     private Levels level;
+
     public LevelName() {
         level = new Levels();
         setForeground(Color.white);

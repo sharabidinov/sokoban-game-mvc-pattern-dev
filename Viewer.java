@@ -3,9 +3,7 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 public class Viewer {
-
     private JPanel panelCenter;
     private GameCanvas gameCanvas;
     private ControlCanvas controlCanvas;

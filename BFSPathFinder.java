@@ -19,11 +19,11 @@ public class BFSPathFinder {
         }
 
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{startX, startY});
+        queue.add(new int[] { startX, startY });
         visited[startX][startY] = true;
 
-        int[] dx = {0, -1, 0, 1};
-        int[] dy = {-1, 0, 1, 0};
+        int[] dx = { 0, -1, 0, 1 };
+        int[] dy = { -1, 0, 1, 0 };
 
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
@@ -41,7 +41,7 @@ public class BFSPathFinder {
 
                 if (nx >= 0 && ny >= 0 && nx < rows && ny < cols && !visited[nx][ny]) {
                     if (map[nx][ny] == 0 || map[nx][ny] == 4) {
-                        queue.add(new int[]{nx, ny});
+                        queue.add(new int[] { nx, ny });
                         visited[nx][ny] = true;
 
                         parent[nx][ny] = x * cols + y;
@@ -54,21 +54,19 @@ public class BFSPathFinder {
     }
 
     private static List<int[]> buildPath(int[][] parent, int startX, int startY, int targetX, int targetY, int cols) {
-        // list to store the path
         List<int[]> path = new ArrayList<>();
-        // starting position
         int x = targetX;
         int y = targetY;
 
         while (!(x == startX && y == startY)) {
-            path.add(0, new int[]{x, y});
+            path.add(0, new int[] { x, y });
 
             int parentIndex = parent[x][y];
             x = parentIndex / cols;
             y = parentIndex % cols;
         }
 
-        path.add(0, new int[]{startX, startY});
+        path.add(0, new int[] { startX, startY });
         return path;
     }
 }

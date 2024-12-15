@@ -22,7 +22,6 @@ public class GameCanvas extends JPanel {
         this.model = model;
         setLayout(null);
         setOpaque(false);
-//        setTheme(model.getTheme());
         imageHashMap = new HashMap<>();
         cellWidthHeight = 50;
         loadImages();
@@ -37,13 +36,9 @@ public class GameCanvas extends JPanel {
         levelName.setForeground(Color.white);
         levelName.setFont(new Font("Arial", Font.BOLD, 20));
 
-
-
-
         Timer timer = model.getTimer();
         LevelName levelName = model.getLevelName();
         CountSteps countSteps = model.getCountSteps();
-
 
         timer.setLocation(100, 0);
         levelName.setLocation(250, 0);
@@ -100,10 +95,9 @@ public class GameCanvas extends JPanel {
         }
     }
 
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-         boolean stateGame = model.getState();
+        boolean stateGame = model.getState();
         if (stateGame) {
             rotateGamer();
             drawDesktop(g);

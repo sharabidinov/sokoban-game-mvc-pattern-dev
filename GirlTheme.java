@@ -12,6 +12,7 @@ public class GirlTheme implements PlayerTheme {
     private Image targetImage;
     private Image groundImage;
     private Image boxOnTarget;
+
     public GirlTheme() {
         type = "Girl Theme";
         frontGirlImage = new ImageIcon("res/images/girl_front.png").getImage();
@@ -58,7 +59,7 @@ public class GirlTheme implements PlayerTheme {
     }
 
     public Image getGroundImage() {
-        return  groundImage;
+        return groundImage;
     }
 
     public Image getBoxOnTargetImage() {

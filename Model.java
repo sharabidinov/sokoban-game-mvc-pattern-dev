@@ -31,7 +31,7 @@ public class Model {
     public Model(Viewer viewer) {
         isMusicPlaying = false;
         this.viewer = viewer;
-        this.soundModel = new SoundModel ();
+        this.soundModel = new SoundModel();
         levels = new Levels();
         levelName = new LevelName();
         countSteps = new CountSteps(this);
@@ -43,7 +43,8 @@ public class Model {
         timer = new Timer();
         playMusic(0);
         try {
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getResource("res/sounds/backgroundMusic.wav")));
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(
+                    Objects.requireNonNull(getClass().getResource("res/sounds/backgroundMusic.wav")));
             musicClip = AudioSystem.getClip();
             musicClip.open(audioStream);
         } catch (Exception e) {
@@ -67,6 +68,7 @@ public class Model {
             isMusicPlaying = true;
         }
     }
+
     public void stopMusic() {
         if (isMusicPlaying) {
             musicClip.stop();
@@ -85,7 +87,7 @@ public class Model {
         initialState = new int[desktop.length][];
 
         for (int i = 0; i < desktop.length; i++) {
-          initialState[i] = new int[desktop[i].length];
+            initialState[i] = new int[desktop[i].length];
             for (int j = 0; j < desktop[i].length; j++) {
                 initialState[i][j] = desktop[i][j];
                 if (desktop[i][j] == 1) {
@@ -303,7 +305,6 @@ public class Model {
         return stateDesktop;
     }
 
-
     public int[][] getDesktop() {
         return desktop;
     }
@@ -362,7 +363,6 @@ public class Model {
         viewer.update();
     }
 
-
     public boolean isChangedState() {
         for (int i = 0; i < initialState.length; i++) {
             for (int j = 0; j < initialState[i].length; j++) {
@@ -373,7 +373,6 @@ public class Model {
         }
         return false;
     }
-
 
     public void startOver() {
         for (int i = 0; i < initialState.length; i++) {
@@ -402,12 +401,13 @@ public class Model {
     public Timer getTimer() {
         return timer;
     }
-    public LevelName getLevelName(){
+
+    public LevelName getLevelName() {
         return levelName;
 
     }
 
-    public void updateCurrentTheme(String themeType){
+    public void updateCurrentTheme(String themeType) {
         ThemeDatabase themeDatabase = new ThemeDatabase();
         PlayerTheme playerTheme = themeDatabase.getPlayerTheme(themeType);
         startOver();
@@ -494,6 +494,7 @@ public class Model {
             }
         }
     }
+
     public void setThemeType(String themeType) {
         this.themeType = themeType;
     }
@@ -503,26 +504,26 @@ public class Model {
     }
 
     public void changeTheme() {
-        if(themeType.equals("Boy")){
+        if (themeType.equals("Boy")) {
             updateCurrentTheme("Girl");
             setThemeType("Girl");
-        }else if(themeType.equals("Girl")) {
+        } else if (themeType.equals("Girl")) {
             updateCurrentTheme("Erkin");
             setThemeType("Erkin");
-        }else{
+        } else {
             updateCurrentTheme("Boy");
             setThemeType("Boy");
         }
     }
 
     public void doMouseWheelAction(int rotation) {
-        if(direction.equals("Down") || direction.equals("Up")) {
+        if (direction.equals("Down") || direction.equals("Up")) {
             if (rotation > 0) {
                 move("Up");
             } else {
                 move("Down");
             }
-        }else {
+        } else {
             if (rotation > 0) {
                 move("Left");
             } else {

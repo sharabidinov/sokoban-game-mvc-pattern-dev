@@ -1,6 +1,7 @@
 import java.awt.Image;
 import javax.swing.JPanel;
 import java.awt.Graphics;
+
 @SuppressWarnings("serial")
 public class BackgroundPanel extends JPanel {
 

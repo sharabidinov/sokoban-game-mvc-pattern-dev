@@ -12,10 +12,8 @@ public class ControlCanvas extends JPanel {
     public HashMap<String, CircleButton> circleButtonHashMap;
     public HashMap<String, Image> imageHashMap;
     private Color buttonColor;
-    private Model model;
 
     public ControlCanvas(Model model) {
-        this.model = model;
         setLayout(null);
         setOpaque(false);
         buttonColor = new Color(0, 0, 0, 110);
@@ -58,8 +56,10 @@ public class ControlCanvas extends JPanel {
 
         int xCenter = (panelWidth - buttonWidth) / 2;
 
-        RectangularButton startButton = new RectangularButton(xCenter, 50, buttonWidth, buttonHeight, buttonColor, "Start");
-        RectangularButton exitButton = new RectangularButton(xCenter, 50 + buttonHeight + buttonSpacing, buttonWidth, buttonHeight, buttonColor, "Exit");
+        RectangularButton startButton = new RectangularButton(xCenter, 50, buttonWidth, buttonHeight, buttonColor,
+                "Start");
+        RectangularButton exitButton = new RectangularButton(xCenter, 50 + buttonHeight + buttonSpacing, buttonWidth,
+                buttonHeight, buttonColor, "Exit");
 
         int prevNextYPosition = 50 + 2 * (buttonHeight + buttonSpacing);
         int smallButtonWidth = 120;
@@ -71,8 +71,7 @@ public class ControlCanvas extends JPanel {
                 smallButtonWidth,
                 buttonHeight,
                 buttonColor,
-                "Prev"
-        );
+                "Prev");
 
         RectangularButton nextLevelButton = new RectangularButton(
                 smallButtonSpacing * 2 + smallButtonWidth,
@@ -80,8 +79,7 @@ public class ControlCanvas extends JPanel {
                 smallButtonWidth,
                 buttonHeight,
                 buttonColor,
-                "Next"
-        );
+                "Next");
 
         int themeYPosition = prevNextYPosition + buttonHeight + buttonSpacing;
 

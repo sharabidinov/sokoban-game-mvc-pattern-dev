@@ -23,9 +23,6 @@ public class CircleButton {
         g.setColor(color);
         g.fillOval(x, y, radius * 2, radius * 2);
 
-//        g.setColor(Color.WHITE);
-//        g.drawOval(x, y, radius * 2, radius * 2);
-
         if (image != null) {
             g.drawImage(image, x, y, radius * 2, radius * 2, null);
         }

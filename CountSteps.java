@@ -1,6 +1,7 @@
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+
 @SuppressWarnings("serial")
 public class CountSteps extends JLabel {
 
@@ -15,7 +16,7 @@ public class CountSteps extends JLabel {
         setFont(new Font("Arial", Font.BOLD, 20));
     }
 
-    public void setSteps(){
+    public void setSteps() {
         steps = model.getSteps();
         setText("Steps: " + steps);
     }
